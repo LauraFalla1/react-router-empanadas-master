@@ -5,7 +5,7 @@ function Navbar() {
     return ( 
         <div class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">Imperio <span>Empanadas</span></a>
+                <a href="index.html" class="navbar-brand">Olympus <span>Delicias</span></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -16,6 +16,7 @@ function Navbar() {
                         <NavLink to='/Productos' className="nav-item nav-link">Productos</NavLink>
                         <NavLink to='/Nosotros' className="nav-item nav-link">Nosotros</NavLink>
                         <NavLink to='/Contacto' className="nav-item nav-link">Contacto</NavLink>
+                        <NavLink to='/Api' className="nav-item nav-link">API</NavLink>
                     </div>
                 </div>
             </div>

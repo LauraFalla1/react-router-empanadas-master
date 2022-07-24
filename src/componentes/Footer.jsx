@@ -28,7 +28,7 @@ function Footer() {
                         <div class="footer-newsletter">
                             <h2>Comentarios</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
+                            Sus comentarios, requerimientos e inquietudes son muy importantes para nosotros, si tiene alguno por favor contáctenos:
                             </p>
                             <div class="form">
                                 <input class="form-control" placeholder="Digite su correo electrónico" />

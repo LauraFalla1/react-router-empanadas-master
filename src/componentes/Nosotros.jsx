@@ -19,9 +19,6 @@ function Nosotros() {
                         <div className="col-lg-6">
                             <div className="about-img">
                                 <img src={nosotros} alt={Image} />
-                                <button type="button" className="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                                    <span></span>
-                                </button>
                             </div>
                         </div>
                         <div className="col-lg-6">
