@@ -11,7 +11,7 @@ function Footer() {
                                 <div class="footer-contact">
                                     <h2>Nuestra Dirección</h2>
                                     <p><i class="fa fa-map-marker-alt"></i>Santa Ines, Neiva, Colombia</p>
-                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                                    <p><i class="fa fa-phone-alt"></i>+012 345 6789</p>
                                     <p><i class="fa fa-envelope"></i>imperio@sazon.com</p>
                                 </div>
                             </div>
