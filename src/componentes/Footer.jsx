@@ -13,34 +13,25 @@ function Footer() {
                                     <p><i class="fa fa-map-marker-alt"></i>Santa Ines, Neiva, Colombia</p>
                                     <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
                                     <p><i class="fa fa-envelope"></i>imperio@sazon.com</p>
-                                    <div class="footer-social">
-                                        <Link to="/"><i class="fab fa-twitter"></i></Link>
-                                        <Link to="/"><i class="fab fa-facebook-f"></i></Link>
-                                        <Link to="/"><i class="fab fa-youtube"></i></Link>
-                                        <Link to="/"><i class="fab fa-instagram"></i></Link>
-                                        <Link to="/"><i class="fab fa-linkedin-in"></i></Link>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="footer-newsletter">
-                            <h2>Comentarios</h2>
-                            <p>
-                            Sus comentarios, requerimientos e inquietudes son muy importantes para nosotros, si tiene alguno por favor contáctenos:
-                            </p>
-                            <div class="form">
-                                <input class="form-control" placeholder="Digite su correo electrónico" />
-                                <button class="btn custom-btn">Submit</button>
-                            </div>
+                            <h2>Redes Sociales</h2>
+                            <div class="footer-social">
+                                        <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer"><i  class="fab fa-twitter"></i></a>
+                                        <a href="https://es-la.facebook.com/facebook/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.youtube.com/watch?v=EhCaEYDrp30" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a> 
+                                        <a href="https://co.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                <p>Copyright &copy; <Link to="/">Imperio del Sabor</Link>, All Right Reserved.</p>
+                    <div class="copyright">
+                        <p>Copyright &copy; <Link to="/">Olympus Delicias</Link>, All Right Reserved.</p>
+                    </div>
                 </div>
             </div>
         </div>
