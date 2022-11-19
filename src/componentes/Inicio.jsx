@@ -29,13 +29,6 @@ function Inicio() {
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src={imgcarousel1} class="d-block w-100" alt="..."/>
-                            <div class="carousel-caption d-none d-md-block flex-content">
-                                <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
-                                <p>Somos Olympus Delicias, antojamos a nuestros dientes con la calidad y el sabor de los excelentes productos que brindamos, generando una experiencia de consumo placentera.</p>
-                            </div>
-                    </div>
-                    <div class="carousel-item">
                         <img src={imgcarousel2} class="d-block w-100" alt="..."/>
                             <div class="carousel-caption d-none d-md-block flex-content">
                                 <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
@@ -44,6 +37,13 @@ function Inicio() {
                     </div>
                     <div class="carousel-item">
                         <img src={imgcarousel3} class="d-block w-100" alt="..."/>
+                            <div class="carousel-caption d-none d-md-block flex-content">
+                                <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
+                                <p>Somos Olympus Delicias, antojamos a nuestros dientes con la calidad y el sabor de los excelentes productos que brindamos, generando una experiencia de consumo placentera.</p>
+                            </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src={imgcarousel1} class="d-block w-100" alt="..."/>
                             <div class="carousel-caption d-none d-md-block flex-content">
                                 <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
                                 <p>Somos Olympus Delicias, antojamos a nuestros dientes con la calidad y el sabor de los excelentes productos que brindamos, generando una experiencia de consumo placentera.</p>
