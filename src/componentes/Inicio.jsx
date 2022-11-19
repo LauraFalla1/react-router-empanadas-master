@@ -16,6 +16,7 @@ import icongenlado from '../img/icons8-bolsa-de-cemento-48.png'
 function Inicio(){
   return (    
     <div className="App">
+        
 
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="1000">
             <div class="carousel-inner">
