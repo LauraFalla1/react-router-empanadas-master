@@ -2,6 +2,22 @@ import React, { Component } from 'react'
 import iconlogin from '../img/icons8-user-67.png'
 
 class Login extends Component {
+    state={
+        form:{
+            username: '',
+            password: ''
+        }
+    }
+
+    handleChange=async e=>{
+        await this.setState({
+            form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value
+            }
+        });
+        console.log(this.state.form);
+    }
     render() {
         return (
             <div>
@@ -17,8 +33,8 @@ class Login extends Component {
                 <div className='page-login'>
                     <div className="cover">
                     <img src={iconlogin} alt={Image} />
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
+                        <input type="text" placeholder="Username" name='username'/>
+                        <input type="password" placeholder="Password" name='password'/>
 
                         <div className="login-btn" >LOGIN</div>
                     </div>
