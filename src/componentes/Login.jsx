@@ -14,7 +14,6 @@ const Login = () => {
         else if (authUser.isAuth) navigate("/")
     }, [authUser.isAuth, authUser.isAdmin, navigate])
 
-
     const init_section = async () => {
         const response = await LoginService.Login(login)
         if (response.token) {

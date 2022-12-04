@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { NavLink ,Link } from 'react-router-dom'
 import { UserContext } from '../context/user.context'
 import React from 'react';
 
 function Navbar() {
     const { authUser } = React.useContext(UserContext)
+
     return (
         <div class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
