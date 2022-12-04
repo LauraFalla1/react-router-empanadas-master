@@ -1,8 +1,19 @@
 import React from 'react'
+import { UserContext } from '../context/user.context'
 import iconlogin from '../img/icons8-user-67.png'
 import LoginService from '../services/login.service'
+import { useNavigate } from 'react-router-dom';
+
 import { MessageSucess, MessageFailed } from '../utils/message'
 const Login = () => {
+    let navigate = useNavigate()
+    const { authUser, setAuthUser } = React.useContext(UserContext)
+
+    React.useEffect(() => {
+        if (authUser.isAuth && authUser.isAdmin) navigate("/admin/dashboard")
+        else if (authUser.isAuth) navigate("/")
+    }, [authUser.isAuth, authUser.isAdmin, navigate])
+
 
     const init_section = async () => {
         const response = await LoginService.Login(login)
@@ -12,6 +23,14 @@ const Login = () => {
                 message: "login efectuado exitosamente"
             })
             localStorage.setItem("token", response.token)
+            localStorage.setItem("is-admin", response.isAdmin)
+            setAuthUser({
+                token: response.token,
+                isAuth: true,
+                isAdmin: response.isAdmin
+            })
+            if (response.isAdmin) navigate("/admin/dashboard")
+            else if (authUser.isAuth) navigate("/")
         } else {
             MessageFailed({
                 title: "error",
