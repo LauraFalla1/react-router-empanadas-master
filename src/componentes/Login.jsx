@@ -1,31 +1,70 @@
-import React, { Component } from 'react'
+import React from 'react'
 import iconlogin from '../img/icons8-user-67.png'
+import LoginService from '../services/login.service'
+import { MessageSucess, MessageFailed } from '../utils/message'
+const Login = () => {
 
-class Login extends Component {
-    render() {
-        return (
-            <div>
-                <div className="page-header-login">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <h2>Login</h2>
-                            </div>
+    const init_section = async () => {
+        const response = await LoginService.Login(login)
+        if (response.token) {
+            MessageSucess({
+                title: "estas logeado",
+                message: "login efectuado exitosamente"
+            })
+            localStorage.setItem("token", response.token)
+        } else {
+            MessageFailed({
+                title: "error",
+                message: "usuario no autenticado"
+            })
+        }
+    }
+
+    const [login, setLogin] = React.useState({
+        email: "",
+        password: ""
+    })
+
+    return (
+        <div>
+            <div className="page-header-login">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h2>Login</h2>
                         </div>
                     </div>
                 </div>
-                <div className='page-login'>
-                    <div className="cover">
+            </div>
+            <div className='page-login'>
+                <div className="cover">
                     <img src={iconlogin} alt={Image} />
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
+                    <input type="email" placeholder="Correo" onChange={(e) => {
+                        setLogin({
+                            ...login,
+                            email: e.target.value
+                        })
+                    }}
+                        value={login.email}
+                    />
+                    <input type="password" placeholder="Clave"
+                        onChange={(e) => {
+                            setLogin({
+                                ...login,
+                                password: e.target.value
+                            })
+                        }}
+                        value={login.password}
+                    />
 
-                        <div className="login-btn" >LOGIN</div>
-                    </div>
+                    <div className="login-btn" onClick={() => {
+                        init_section()
+                    }}>LOGIN</div>
                 </div>
             </div>
+        </div>
 
-        )
-    }
+    )
+
 }
 export default Login;

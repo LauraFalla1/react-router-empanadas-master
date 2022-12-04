@@ -8,19 +8,11 @@ import Carousel from './Carousel';
 function Inicio() {
     return (
         <div className="App">
-
             <Carousel />
-            
             <Categorias />
-
             <Menu />
-
             <Nosotros />
-
             <Contacto />
-
-
-
         </div>
     );
 }
