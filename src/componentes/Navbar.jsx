@@ -1,9 +1,9 @@
-import {NavLink} from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
-    
-    return ( 
+
+    return (
         <div class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
                 <Link to='/' class="navbar-brand">Olympus <span>Delicias</span></Link>
@@ -17,12 +17,12 @@ function Navbar() {
                         <NavLink to='/Nosotros' className="nav-item nav-link">Nosotros</NavLink>
                         <NavLink to='/Contacto' className="nav-item nav-link">Contacto</NavLink>
                         <NavLink to='/login' className="nav-item nav-link"><i class="bi bi-person-circle"></i></NavLink>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
-     );
+    );
 }
 
 export default Navbar;
