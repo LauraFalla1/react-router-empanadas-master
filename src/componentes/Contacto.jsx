@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-import empanada1 from '../img/empanadas1.jpg'
 
 function Contacto() {
     return ( 
