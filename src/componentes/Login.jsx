@@ -4,7 +4,7 @@ import iconlogin from '../img/icons8-user-67.png'
 class Login extends Component {
     state={
         form:{
-            username: '',
+            email: '',
             password: ''
         }
     }

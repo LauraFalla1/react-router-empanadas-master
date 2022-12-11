@@ -5,9 +5,9 @@ function Nosotros() {
     return ( 
         <div>
             <div class="page-header mb-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
                         <h2>Nosotros</h2>
                     </div>
                 </div>

@@ -72,7 +72,7 @@ function Menu() {
         </div>
     </div>
     <ul className="nav nav-pills justify-content-center">
-        <NavLink classNameName="btn custom-btn" to="/Productos">Productos</NavLink>
+        <NavLink className="btn custom-btn" to="/Productos">Productos</NavLink>
     </ul>
 </div>
 </div>
