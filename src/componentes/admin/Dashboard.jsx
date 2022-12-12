@@ -1,13 +1,10 @@
 
 import React from "react"
 import { Sidebar, Menu, MenuItem, useProSidebar, sidebarClasses } from 'react-pro-sidebar';
-
 import iconempanada from '../../img/carrusel2.jpg'
 import { Link, Route, Routes } from 'react-router-dom';
-import Order from "./Order";
 import Product from "./Productos";
 import Categories from "./Categoria";
-import OrderIcon from "./icons/ordeer";
 import ProductIcon from "./icons/product";
 import CategoryIcon from "./icons/category";
 
@@ -35,7 +32,6 @@ const DashboardAdmin = () => {
                     },
                 }}>
                     <img src={iconempanada} alt={"Empanada"} className="w-100"/>
-                    <MenuItem icon={<OrderIcon   width={20}/>} active={true} routerLink={<Link to={"/admin/dashboard/order"} />}> Order </MenuItem>
                     <MenuItem icon={<ProductIcon width={20}/>} routerLink={<Link to={"/admin/dashboard/product"} />}> Productos </MenuItem>
                     <MenuItem icon={<CategoryIcon  width={20}/>} routerLink={<Link to={"/admin/dashboard/categories"} />}> Categorias </MenuItem>
                 </Menu>
@@ -43,7 +39,6 @@ const DashboardAdmin = () => {
             <main className="w-100">
                  <button onClick={() => collapseSidebar()}>Collapse</button>
                 <Routes>
-                    <Route path="/order" element={<Order />} />
                     <Route path="/product" element={<Product />} />
                     <Route path="/categories" element={<Categories />} />
                 </Routes>
