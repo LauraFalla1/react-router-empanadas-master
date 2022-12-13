@@ -51,19 +51,19 @@ function Contacto() {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="contact-info">
-                                <div class="contact-icon">
-                                    <i class="fa fa-share"></i>
+                        <div className="col-md-6 col-lg-3">
+                            <div className="contact-info">
+                                <div className="contact-icon">
+                                    <i className="fa fa-share"></i>
                                 </div>
-                                <div class="contact-text">
+                                <div className="contact-text">
                                     <h3>Redes sociales</h3>
-                                    <div class="contact-social">
-                                        <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://es-la.facebook.com/facebook/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=EhCaEYDrp30" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                                        <a href="https://co.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                                    <div className="contact-social">
+                                        <a href="https://twitter.com/?lang=es" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+                                        <a href="https://es-la.facebook.com/facebook/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.youtube.com/watch?v=EhCaEYDrp30" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>
+                                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+                                        <a href="https://co.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
                                     </div>
                                 </div>
                             </div>

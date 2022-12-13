@@ -1,4 +1,3 @@
-
 import React from "react"
 import { Sidebar, Menu, MenuItem, useProSidebar, sidebarClasses } from 'react-pro-sidebar';
 import iconempanada from '../../img/carrusel2.jpg'
