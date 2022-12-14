@@ -12,21 +12,21 @@ function Carousel() {
             </div>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src={imgcarousel2} className="d-block w-100" alt="..." />
+                    <img src={imgcarousel2} className="d-block w-100" alt={Image} />
                     <div className="carousel-caption d-none d-md-block flex-content">
                         <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
                         <p>Somos Olympus Delicias, antojamos a nuestros dientes con la calidad y el sabor de los excelentes productos que brindamos, generando una experiencia de consumo placentera.</p>
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img src={imgcarousel3} className="d-block w-100" alt="..." />
+                    <img src={imgcarousel3} className="d-block w-100" alt={Image} />
                     <div className="carousel-caption d-none d-md-block flex-content">
                         <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
                         <p>Somos Olympus Delicias, antojamos a nuestros dientes con la calidad y el sabor de los excelentes productos que brindamos, generando una experiencia de consumo placentera.</p>
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img src={imgcarousel1} className="d-block w-100" alt="..." />
+                    <img src={imgcarousel1} className="d-block w-100" alt={Image} />
                     <div className="carousel-caption d-none d-md-block flex-content">
                         <h5>Antojado de algo Rico, <span>Calientico y Crocantico?</span></h5>
                         <p>Somos Olympus Delicias, antojamos a nuestros dientes con la calidad y el sabor de los excelentes productos que brindamos, generando una experiencia de consumo placentera.</p>

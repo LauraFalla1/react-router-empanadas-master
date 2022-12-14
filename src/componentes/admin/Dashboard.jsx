@@ -6,6 +6,7 @@ import Product from "./Productos";
 import Categories from "./Categoria";
 import ProductIcon from "./icons/product";
 import CategoryIcon from "./icons/category";
+import AgregarCategoria from "./AgregarCategoria";
 
 
 const DashboardAdmin = () => {
@@ -35,11 +36,13 @@ const DashboardAdmin = () => {
                     <MenuItem icon={<CategoryIcon  width={20}/>} routerLink={<Link to={"/admin/dashboard/categories"} />}> Categorias </MenuItem>
                 </Menu>
             </Sidebar>
-            <main className="w-100">
+            <main className="w-100" >
                  <button onClick={() => collapseSidebar()}>Collapse</button>
                 <Routes>
+                    <Route path="/" element={<Product />} />
                     <Route path="/product" element={<Product />} />
                     <Route path="/categories" element={<Categories />} />
+                    <Route path="/categories/agregarcategoria" element={<AgregarCategoria />} />
                 </Routes>
             </main>
         </div>

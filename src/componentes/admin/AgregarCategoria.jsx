@@ -1,48 +1,77 @@
 import React, {useState} from "react"
 import axios from "../../utils/axios"
-import { useState } from "react"
 
-const AgregarCategoria = () {
+
+
+const AgregarCategoria = () => {
     const [categoria, setCategoria] = useState({
         nombre: '',
         descripcion: '',
-        urlImage: ''
+        urlImage: null
     });
+
+    //guarda los cambios en cada una de las propiedades de la categoria
+    const handleChange = (e) =>{
+        setCategoria({
+            ...categoria, //copia de la categoria actual
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleImage = (e) =>{
+        setCategoria({
+            ...categoria, //copia de la categoria actual
+            urlImage: e.target.files[0]
+        })
+    };
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         //guardar categoria
+        GuardarCategoria();
+    };
+
+    const GuardarCategoria = () => {
+        axios.post('/category', categoria)
+        .then(res=>{
+            console.log(res);
+            alert(res.data.message);
+        });
     };
 
     return(
+        
         <form
         onSubmit={handleSubmit}
         >
             <div className="form-group">
-                <label htmFor="nombre">Nombre</label>
+                <label htmlFor="nombre">Nombre</label>
                 <input 
                     type="text"
                     className="form-control"
                     name="nombre"
                     placeholder="Ingresar categoria"
-                    value={cat.nombre}
+                    defaultValue={categoria.nombre}
+                    onChange={handleChange}
                     required
                 />
             </div>
 
             <div className="form-group">
-                <label htmFor="descripcion">Descripción</label>
+                <label htmlFor="descripcion">Descripción</label>
                 <input 
                     type="text"
                     className="form-control"
-                    name="descripción"
+                    name="descripcion"
                     placeholder="Ingresar descripción"
-                    value={cat.descripcion}
+                    defaultValue={categoria.descripcion}
+                    onChange={handleChange}
+                    required
                 />
             </div>
 
             <div className="form-group">
-                <label htmFor="urlImage">Imagen</label>
+                <label htmlFor="urlImage">Imagen</label>
                 <input 
                     type="file"
                     className="form-control"
@@ -54,8 +83,10 @@ const AgregarCategoria = () {
 
             <button 
             type="submit" 
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"
             >Guardar Categoria</button>
         </form>
+        
     )
 }
+export default AgregarCategoria;
