@@ -1,6 +1,38 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import axios from "../../utils/axios"
+import { MessageFailed, MessageSucess } from "../../utils/message"
 
 const Product = () => {
+  //categoria:state
+  //setCategoria para actualizar clientes
+  const [producto, setProducto] = useState([]);
+
+  const getProducto = async () => {
+    const { data } = await axios.get('/product');
+    setProducto(data);
+  };
+
+  useEffect(() => {
+    getProducto();
+  }, [])
+
+  const deleteProducto = async (id) => {
+    try {
+      const { data } = await axios.delete(`/product/${id}`);
+      if (data.product) {
+        MessageSucess({
+          title: "Producto Eliminada",
+          message: data.msg
+        })
+        getProducto()
+      }
+    } catch (error) {
+      MessageFailed({
+        title: "Error",
+        message: error.response.msg
+      })
+    }
+  }
   return (
     <div>
       <h1>Productos</h1>
@@ -16,23 +48,25 @@ const Product = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {
+            producto.map((pro, index) => (
+              <tr>
+                <th scope="row">{index + 1}</th>
+                <td><img src={pro.urlImage} alt={Image} /></td>
+                <td>{pro.nombre}</td>
+                <td>{pro.categoria}</td>
+                <td>{pro.precio}</td>
+                <td>{pro.descripcion}</td>
+                <td>
+                  <button type="button" className="btn btn-success" onClick={() => { }}>Editar</button>
+                  <button type="button" className="btn btn-danger" onClick={() => {
+                    deleteProducto(pro._id)
+                  }}>Eliminar</button>
+                </td>
+              </tr>
+
+            ))
+          }
         </tbody>
       </table>
     </div>

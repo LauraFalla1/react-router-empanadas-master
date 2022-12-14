@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "../../utils/axios"
-import {MessageFailed, MessageSucess} from "../../utils/message"
-
-
+import { MessageFailed, MessageSucess } from "../../utils/message"
+import { Link } from 'react-router-dom';
 
 const Categoria = () => {
 
@@ -22,16 +21,16 @@ const Categoria = () => {
     const deleteCategoria = async (id) => {
         try {
             const { data } = await axios.delete(`/category/${id}`);
-            if(data.category){
+            if (data.category) {
                 MessageSucess({
-                    title:"Categoria Eliminada",
+                    title: "Categoria Eliminada",
                     message: data.msg
                 })
                 getCategoria()
             }
         } catch (error) {
             MessageFailed({
-                title:"Error",
+                title: "Error",
                 message: error.response.msg
             })
         }
@@ -47,22 +46,28 @@ const Categoria = () => {
                         <th scope="col">Categoria</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col"></th>
+                        <th>
+                            <Link to="/admin/dashboard/categories/agregarcategoria"
+                            className="btn btn-info mr-1"
+                            role="button"
+                            aria-pressed ="true"
+                            >Nueva Categoria</Link>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         categoria.map((cat, index) => (
                             <tr>
-                                <th scope="row">{index}</th>
-                                <td><img src={cat.urlImage} alt="" /></td>
+                                <th scope="row">{index +1}</th>
+                                <td><img src={cat.urlImage} alt={Image} /></td>
                                 <td>{cat.nombre}</td>
                                 <td>{cat.descripcion}</td>
                                 <td>
-                                <button type="button" class="btn btn-success" onClick={()=>{}}>Editar</button>
-                                <button type="button" class="btn btn-danger" onClick={()=>{
-                                    deleteCategoria(cat._id)
-                                }}>Eliminar</button>
+                                    <button type="button" className="btn btn-success" onClick={() => { }}>Editar</button>
+                                    <button type="button" className="btn btn-danger" onClick={() => {
+                                        deleteCategoria(cat._id)
+                                    }}>Eliminar</button>
                                 </td>
                             </tr>
 
@@ -70,9 +75,11 @@ const Categoria = () => {
                     }
                 </tbody>
             </table>
+            
+
         </div>
     )
 }
 
 
-export default Categoria
+export default Categoria;

@@ -1,48 +1,89 @@
 import React, {useState} from "react"
 import axios from "../../utils/axios"
-import { useState } from "react"
+import { toBase64 } from "../../utils/base64"
+import { MessageFailed, MessageSucess } from "../../utils/message"
+
 
 const AgregarCategoria = () => {
     const [categoria, setCategoria] = useState({
         nombre: '',
         descripcion: '',
-        urlImage: ''
+        urlImage: null
     });
 
-    // const handleSubmit = (e) =>{
-    //     e.preventDefault();
-    //     //guardar categoria
-    // };
+    //guarda los cambios en cada una de las propiedades de la categoria
+    const handleChange = (e) =>{
+        setCategoria({
+            ...categoria, //copia de la categoria actual
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleImage = async (e) =>{
+        const base64= await toBase64(e.target.files[0])
+        const img = base64.split(",")
+        setCategoria({
+            ...categoria, 
+            urlImage: img[1]
+        })
+    };
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        //guardar categoria
+        GuardarCategoria();
+    };
+
+    const GuardarCategoria = async () => {
+        try{
+            const {data } =await axios.post('/category', categoria)
+            if(data.nombre){
+                MessageSucess({
+                    message:"la categoria a sido guardarda id: " + data._id,
+                    title:"categoria guardada"
+                })
+            }
+        }catch(e){
+            MessageFailed({
+                message:"la categoria no se pudo guardar verique la informacion",
+                title:"error"
+            })
+        }
+    };
 
     return(
+        
         <form
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         >
             <div className="form-group">
-                <label htmFor="nombre">Nombre</label>
+                <label htmlFor="nombre">Nombre</label>
                 <input 
                     type="text"
                     className="form-control"
                     name="nombre"
                     placeholder="Ingresar categoria"
-                    value={cat.nombre}
+                    defaultValue={categoria.nombre}
+                    onChange={handleChange}
                     required
                 />
             </div>
 
             <div className="form-group">
-                <label htmFor="descripcion">Descripción</label>
+                <label htmlFor="descripcion">Descripción</label>
                 <input 
                     type="text"
                     className="form-control"
-                    name="descripción"
+                    name="descripcion"
                     placeholder="Ingresar descripción"
-                    value={cat.descripcion}
+                    defaultValue={categoria.descripcion}
+                    onChange={handleChange}
+                    required
                 />
             </div>
 
             <div className="form-group">
-                <label htmFor="urlImage">Imagen</label>
+                <label htmlFor="urlImage">Imagen</label>
                 <input 
                     type="file"
                     className="form-control"
@@ -54,10 +95,12 @@ const AgregarCategoria = () => {
 
             <button 
             type="submit" 
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"
             >Guardar Categoria</button>
         </form>
+        
     )
+
 }
 
 export default AgregarCategoria;

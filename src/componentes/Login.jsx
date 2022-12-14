@@ -2,7 +2,7 @@ import React from 'react'
 import { UserContext } from '../context/user.context'
 import iconlogin from '../img/icons8-user-67.png'
 import LoginService from '../services/login.service'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 import { MessageSucess, MessageFailed } from '../utils/message'
 const Login = () => {
