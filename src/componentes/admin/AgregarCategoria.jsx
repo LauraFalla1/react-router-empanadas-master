@@ -2,21 +2,21 @@ import React, {useState} from "react"
 import axios from "../../utils/axios"
 import { useState } from "react"
 
-const AgregarCategoria = () {
+const AgregarCategoria = () => {
     const [categoria, setCategoria] = useState({
         nombre: '',
         descripcion: '',
         urlImage: ''
     });
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        //guardar categoria
-    };
+    // const handleSubmit = (e) =>{
+    //     e.preventDefault();
+    //     //guardar categoria
+    // };
 
     return(
         <form
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         >
             <div className="form-group">
                 <label htmFor="nombre">Nombre</label>
@@ -59,3 +59,5 @@ const AgregarCategoria = () {
         </form>
     )
 }
+
+export default AgregarCategoria;
