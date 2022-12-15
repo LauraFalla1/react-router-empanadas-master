@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import axios from "../../utils/axios"
 import { MessageFailed, MessageSucess } from "../../utils/message"
+import { Link } from 'react-router-dom';
+
 
 const Product = () => {
   //categoria:state
@@ -10,11 +12,13 @@ const Product = () => {
   const getProducto = async () => {
     const { data } = await axios.get('/product');
     setProducto(data);
+    console.log(data);
   };
 
   useEffect(() => {
     getProducto();
   }, [])
+
 
   const deleteProducto = async (id) => {
     try {
@@ -35,7 +39,7 @@ const Product = () => {
   }
   return (
     <div>
-      <h1>Productos</h1>
+      <h1 className="text-center">Productos</h1>
       <table className="table table-bordered ">
         <thead >
           <tr>
@@ -45,6 +49,13 @@ const Product = () => {
             <th scope="col">Categoria</th>
             <th scope="col">Precio</th>
             <th scope="col">Descripción</th>
+            <th>
+                            <Link to="/admin/dashboard/product/agregarproducto"
+                            className="btn btn-info mr-1"
+                            role="button"
+                            aria-pressed ="true"
+                            >Nuevo Producto</Link>
+                        </th>
           </tr>
         </thead>
         <tbody>
@@ -52,9 +63,9 @@ const Product = () => {
             producto.map((pro, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td><img src={pro.urlImage} alt={Image} /></td>
+                <td><img src={pro.urlImage} alt={Image}  width={200} /></td>
                 <td>{pro.nombre}</td>
-                <td>{pro.categoria}</td>
+                <td>{pro?.categoria?.nombre}</td>
                 <td>{pro.precio}</td>
                 <td>{pro.descripcion}</td>
                 <td>

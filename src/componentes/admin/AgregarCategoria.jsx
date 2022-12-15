@@ -52,15 +52,19 @@ const AgregarCategoria = () => {
     };
 
     return(
+        <div className="container-fluid">
+
+        <h2 className="text-center">Formularios Categorias</h2>
         
         <form
+        className="row"
         onSubmit={handleSubmit}
         >
-            <div className="form-group">
+            <div className="form-group col-md-6">
                 <label htmlFor="nombre">Nombre</label>
                 <input 
                     type="text"
-                    className="form-control"
+                    className="form-control my-2"
                     name="nombre"
                     placeholder="Ingresar categoria"
                     defaultValue={categoria.nombre}
@@ -69,11 +73,11 @@ const AgregarCategoria = () => {
                 />
             </div>
 
-            <div className="form-group">
+            <div className="form-group col-md-6">
                 <label htmlFor="descripcion">Descripción</label>
                 <input 
                     type="text"
-                    className="form-control"
+                    className="form-control my-2"
                     name="descripcion"
                     placeholder="Ingresar descripción"
                     defaultValue={categoria.descripcion}
@@ -82,11 +86,11 @@ const AgregarCategoria = () => {
                 />
             </div>
 
-            <div className="form-group">
+            <div className="form-group col-md-6">
                 <label htmlFor="urlImage">Imagen</label>
                 <input 
                     type="file"
-                    className="form-control"
+                    className="form-control my-2"
                     name="urlImage"
                     onChange={handleImage}
                     required
@@ -98,6 +102,7 @@ const AgregarCategoria = () => {
             className="btn btn-outline-primary"
             >Guardar Categoria</button>
         </form>
+        </div>  
         
     )
 

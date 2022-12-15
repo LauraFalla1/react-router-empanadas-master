@@ -7,6 +7,8 @@ import Categories from "./Categoria";
 import ProductIcon from "./icons/product";
 import CategoryIcon from "./icons/category";
 import AgregarCategoria from "./AgregarCategoria";
+import AgregarProducto from "./AgregarProducto";
+
 
 
 const DashboardAdmin = () => {
@@ -43,6 +45,8 @@ const DashboardAdmin = () => {
                     <Route path="/product" element={<Product />} />
                     <Route path="/categories" element={<Categories />} />
                     <Route path="/categories/agregarcategoria" element={<AgregarCategoria />} />
+                    <Route path="/product/agregarproducto" element={<AgregarProducto />} />
+
                 </Routes>
             </main>
         </div>
