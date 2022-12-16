@@ -42,12 +42,12 @@ const EditarCategoria = (props) => {
             if(data.nombre){
                 MessageSucess({
                     message:"la categoria a sido actualizada id: " + data._id,
-                    title:"categoria guardada"
+                    title:"Categoria actializada"
                 })
             }
         }catch(e){
             MessageFailed({
-                message:"la categoria no se pudo actualizar verique la informacion",
+                message:"La categoria no se pudo actualizar verique la informacion",
                 title:"error"
             })
         }
@@ -60,7 +60,7 @@ const EditarCategoria = (props) => {
                 setCategoria(data);
             }catch(e){
                 MessageFailed({
-                    message:"la categoria no se pudo editar verique la informacion",
+                    message:"La categoria no se pudo editar verique la informacion",
                     title:"error"
                 })
             }
