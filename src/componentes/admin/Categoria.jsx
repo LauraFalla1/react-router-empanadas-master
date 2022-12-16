@@ -64,8 +64,13 @@ const Categoria = () => {
                                 <td><img src={cat.urlImage}  width={200} alt={Image} /></td>
                                 <td>{cat.nombre}</td>
                                 <td>{cat.descripcion}</td>
-                                <td>
-                                    <button type="button" className="btn btn-success" onClick={() => { }}>Editar</button>
+                                <td>                                        
+                                       <Link to={`/admin/dashboard/categories/editarcategoria/${cat._id}`}
+                                       className="btn btn-success"
+                                       role="button"
+                                       aria-pressed ="true"
+                                       >Editar</Link> 
+                                    
                                     <button type="button" className="btn btn-danger my-3" onClick={() => {
                                         deleteCategoria(cat._id)
                                     }}>Eliminar</button>
@@ -77,9 +82,7 @@ const Categoria = () => {
                 </tbody>
             </table>
             
-
             </div>
-        
     )
 }
 

@@ -15,39 +15,32 @@ import congelado3 from "../img/congelado3.jpeg";
 import congelado4 from "../img/congelado4.jpeg";
 import congelado5 from "../img/congelado5.jpeg";
 import congelado6 from "../img/congelado6.jpeg";
+
 import { useState, useEffect } from "react";
 import axios from "../utils/axios";
-function Productos() {
-  const [producto, setProducto] = useState({});
-  const [categoria, setCategoria] = useState([]);
-  const getProducto = async () => {
-    const { data } = await axios.get("/product");
-    if (data.length > 0) {
-      const response = data.reduce(
-        (acc, val) => {
-          const index = acc.categorias.findIndex(
-            (item) => val.categorias._id === item._id
-          );
-          if (index === -1) {
-            acc.categorias.push(val.categoria);
-          }
-          if (acc.productos[val.categoria._id] === undefined) {
-            acc.productos[val.categoria._id] = [];
-          }
-          acc.productos[val.categoria._id].push( val);
-          return acc;
-        },
-        { categorias: [], productos: {} }
-      );
+import { NavItem } from "./NavItem";
+import { NavItemContent } from "./NavItemContent";
 
-      setProducto(response.productos);
-      setCategoria(response.categorias);
-    }
+const Productos = (props) => {
+  const [productos, setProductos] = useState({});
+  const [categorias, setCategorias] = useState([]);
+  const [activeMenu, setActiveMenu] = useState("0");
+
+  const getProductos = async() => {
+    const { data } = await axios.get("/product/productByCategories");
+    setProductos(data);
+  };
+
+  const getCategorias = async () => {
+    const { data } = await axios.get("/category");
+    setCategorias(data);
   };
 
   useEffect(() => {
-    getProducto();
+    getCategorias()
+    getProductos()
   }, []);
+  
   return (
     <div>
       <div className="page-header mb-0">
@@ -66,46 +59,27 @@ function Productos() {
           </div>
           <div className="menu-tab">
             <ul className="nav nav-pills justify-content-center">
-              {categoria.map((cat) => (
-                <li className="nav-item">
-                  <a
-                    className="nav-link active"
-                    data-toggle="pill"
-                    href="#{cat._id}"
-                  >
-                    {cat.nombre}
-                  </a>
-                </li>
+              {categorias.map((cat, idx) => (
+                <NavItem categoria={cat} funcion={() => setActiveMenu(idx.toString())}/>
               ))}
             </ul>
             <div className="tab-content">
-              {categoria.map((cat) =>{ 
-                debugger;
-                return(
-                <div id={cat._id} className="container tab-pane active">
-                  <div className="row">
-                    <div className="col-lg-7 col-md-12">
-                      {producto[cat._id].map((pro) => (
-                        <div className="menu-item">
-                          <div className="menu-img">
-                            <img src={pro.urlImage} alt={Image} />
-                          </div>
-                          <div className="menu-text">
-                            <h3>
-                              <span>{pro.nombre}</span>
-                              <strong>${pro.precio}</strong>
-                            </h3>
-                            <p>{pro.descripcion}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="col-lg-5 d-none d-lg-block">
-                      <img src={mempa3} alt={Image} />
-                    </div>
+              <div className="container tab-pane active">
+                <div className="row">
+                  <div className="col-lg-7 col-md-12">
+                    { 
+                      (Object.keys(productos).length === 0) 
+                      ? <h1>No hay información</h1> 
+                      : productos[activeMenu].map((pro) =>
+                        <NavItemContent producto={pro} />
+                      )
+                    }
+                  </div>
+                  <div className="col-lg-5 d-none d-lg-block">
+                    <img src={mempa3} alt={Image} />
                   </div>
                 </div>
-              )})}
+              </div>
             </div>
           </div>
         </div>

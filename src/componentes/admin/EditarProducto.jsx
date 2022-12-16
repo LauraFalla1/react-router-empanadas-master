@@ -1,10 +1,12 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
+import { useParams } from "react-router-dom"
 import axios from "../../utils/axios"
 import { toBase64 } from "../../utils/base64"
 import { MessageFailed, MessageSucess } from "../../utils/message"
 
+const EditarProducto = (props) => {
+    const _id = useParams().id;
 
-const AgregarProducto = () => {
     const [producto, setProducto] = useState({
         nombre: '',
         categoria: '',
@@ -16,25 +18,26 @@ const AgregarProducto = () => {
 
     const [categoria, setCategoria] = useState([]);
 
-    const getCategoria = async () => {
+    const getProduct = async () => {
         const { data } = await axios.get('/category');
         setCategoria(data);
     };
 
-    React.useEffect(() => {
-        getCategoria();
+    useEffect(() => {
+        getProduct();
     }, [])
 
-    //guarda los cambios en cada una de las propiedades de la categoria
+
+    //guarda los cambios en cada una de las propiedades de la producto
     const handleChange = (e) =>{
         setProducto({
-            ...producto, //copia de la categoria actual
+            ...producto, //copia de la producto actual
             [e.target.name]: e.target.value,
         });
     };
 
     const handleImage = async (e) =>{
-        const base64= await toBase64(e.target.files[0])
+        const base64 = await toBase64(e.target.files[0])
         const img = base64.split(",")
         setProducto({
             ...producto, 
@@ -44,33 +47,47 @@ const AgregarProducto = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        //guardar categoria
         GuardarProducto();
     };
 
     const GuardarProducto = async () => {
         try{
-            const {data } =await axios.post('/product', producto)
+            const { data } = await axios.put(`/product/${producto._id}`, producto)
             if(data.nombre){
                 MessageSucess({
-                    message:"El producto a sido guardardo id: " + data._id,
-                    title:"Producto guardado"
+                    message:"la producto a sido actualizada id: " + data._id,
+                    title:"producto guardado"
                 })
             }
         }catch(e){
             MessageFailed({
-                message:"El producto no se pudo guardar verique la informacion",
+                message:"la producto no se pudo actualizar verique la informacion",
                 title:"error"
             })
         }
     };
 
-    return(
+    useEffect(() => {
+        const getProduct =  async () => {
+            try{
+                const { data } = await axios.get(`/product/${_id}`);
+                setProducto(data);
+            }catch(e){
+                MessageFailed({
+                    message:"la producto no se pudo editar verique la informacion",
+                    title:"error"
+                })
+            }
+        };
+        getProduct();
+    }, [_id] );
+
+    return (
         <div className="container-fluid">
 
-            <h2 className="text-center">Formularios Productos</h2>
+        <h2 className="text-center">Formularios Categorias</h2>
         
-            <form className="row"
+        <form className="row"
             onSubmit={handleSubmit}
             >
                 <div className="form-group col-md-6">
@@ -146,12 +163,10 @@ const AgregarProducto = () => {
                 <button 
                 type="submit" 
                 className="btn btn-outline-primary"
-                >Guardar Producto</button>
+                >Actualizar Producto</button>
             </form>
-        </div>
-        
+        </div>  
     )
-
 }
 
-export default AgregarProducto;
+export default EditarProducto;

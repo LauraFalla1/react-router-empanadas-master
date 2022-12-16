@@ -4,7 +4,7 @@ import { MessageFailed, MessageSucess } from "../../utils/message"
 import { Link } from 'react-router-dom';
 
 
-const Product = () => {
+const Product = (props) => {
   //categoria:state
   //setCategoria para actualizar clientes
   const [producto, setProducto] = useState([]);
@@ -50,12 +50,12 @@ const Product = () => {
             <th scope="col">Precio</th>
             <th scope="col">Descripción</th>
             <th>
-                            <Link to="/admin/dashboard/product/agregarproducto"
-                            className="btn btn-info mr-1"
-                            role="button"
-                            aria-pressed ="true"
-                            >Nuevo Producto</Link>
-                        </th>
+              <Link to="/admin/dashboard/product/agregarproducto/"
+              className="btn btn-info mr-1"
+              role="button"
+              aria-pressed ="true"
+              >Nuevo Producto</Link>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -68,11 +68,16 @@ const Product = () => {
                 <td>{pro?.categoria?.nombre}</td>
                 <td>{pro.precio}</td>
                 <td>{pro.descripcion}</td>
-                <td>
-                  <button type="button" className="btn btn-success" onClick={() => { }}>Editar</button>
-                  <button type="button" className="btn btn-danger" onClick={() => {
-                    deleteProducto(pro._id)
-                  }}>Eliminar</button>
+                <td>                                        
+                    <Link to={`/admin/dashboard/product/editarproducto/${pro._id}`}
+                    className="btn btn-success"
+                    role="button"
+                    aria-pressed ="true"
+                    >Editar</Link> 
+                    
+                    <button type="button" className="btn btn-danger my-3" onClick={() => {
+                        deleteProducto(pro._id)
+                    }}>Eliminar</button>
                 </td>
               </tr>
 

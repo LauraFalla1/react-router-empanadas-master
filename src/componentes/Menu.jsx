@@ -31,8 +31,9 @@ function Menu() {
             <div id="burgers" className="container tab-pane active">
               <div className="row">
                 <div className="col-lg-7 col-md-12">
-                  {producto.map((pro) => (
-                    <div className="menu-item">
+                  {producto.map((pro, idx) => {
+                    if(idx < 5) {
+                      return <div className="menu-item">
                       <div className="menu-img">
                         <img src={pro.urlImage} alt={Image} />
                       </div>
@@ -46,7 +47,9 @@ function Menu() {
                         </p>
                       </div>
                     </div>
-                  ))}
+                    }
+                  } 
+                )}
                 </div>
                 <div className="col-lg-5 d-none d-lg-block">
                   <img src={carrusel2} alt={Image} />
