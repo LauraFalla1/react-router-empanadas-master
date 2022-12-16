@@ -31,13 +31,13 @@ const DashboardAdmin = () => {
 
 
     return (
-        <div style={{ display: 'flex', height: '100vh', backgroundColor:"rgba(0, 0, 0, .04)" }}>
-            <Sidebar
+        <div style={{ display: 'flex', height: '100%'}} className="container-desktop">
+            <Sidebar 
              rootStyles={{
                 [`.${sidebarClasses.container}`]: {
                   backgroundColor: '#fff',
                 },
-              }} >
+              }} className="dashboard-main">
                 <Menu menuItemStyles={{
                     button: ({ level, active, disabled }) => {
                         // only apply styles on first level elements of the tree
@@ -47,15 +47,15 @@ const DashboardAdmin = () => {
                                 backgroundColor: active ? 'rgba(251, 175, 50, 0.3)' :  '#fff' ,
                             };
                     },
-                }}>
-                    <img src={iconempanada} alt={"Empanada"} className="w-100"/>
+                }} className="dashboard">
+                    <img src={iconempanada} alt={"Empanada"} className="w-100 img-dashboard"/>
                     <MenuItem icon={<ProductIcon width={20}/>} routerLink={<Link to={"/admin/dashboard/product"} />}> Productos </MenuItem>
                     <MenuItem icon={<CategoryIcon  width={20}/>} routerLink={<Link to={"/admin/dashboard/categories"} />}> Categorias </MenuItem>
-                    <button onClick={cerrarSesion}>Salir</button>
+                    <button class="btn btn-outline-secondary color-btn" onClick={cerrarSesion}>Salir</button>
                 </Menu>
             </Sidebar>
-            <main className="w-100" >
-                 <button onClick={() => collapseSidebar()}>Collapse</button>
+            <main className="w-100 main-new" style={{background: '#fff8f0'}}>
+                 <button onClick={() => collapseSidebar()} className="Collapse">Collapse</button>
                 <Routes>
                     <Route path="/" element={<Product />} />
                     

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "../../utils/axios"
 import { MessageFailed, MessageSucess } from "../../utils/message"
+import './../../styles/productos.css' 
 import { Link } from 'react-router-dom';
 
 
@@ -38,11 +39,11 @@ const Product = (props) => {
     }
   }
   return (
-    <div>
+    <div className="container-products">
       <h1 className="text-center">Productos</h1>
       <table className="table table-bordered ">
-        <thead >
-          <tr>
+        <thead className="table">
+          <tr className="table-main">
             <th scope="col">#</th>
             <th scope="col">Producto</th>
             <th scope="col">Nombre</th>
@@ -51,7 +52,7 @@ const Product = (props) => {
             <th scope="col">Descripción</th>
             <th>
               <Link to="/admin/dashboard/product/agregarproducto/"
-              className="btn btn-info mr-1"
+              className="btn btn-info mr-1 btn-new"
               role="button"
               aria-pressed ="true"
               >Nuevo Producto</Link>

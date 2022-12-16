@@ -42,7 +42,7 @@ const Categoria = () => {
             
             <table className="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr className="table-main">
                         <th  scope="col">#</th>
                         <th  scope="col">Categoria</th>
                         <th  scope="col">Nombre</th>

@@ -1,0 +1,56 @@
+.container-products {
+    padding: 2rem;
+}
+
+.table-main {
+    background: #0c1c6b;
+    color: white;
+    border: none;
+    border-style: none;
+}
+
+tr {
+    border-color: #fff8f0;
+    border-style: none;
+    border-width: 0;
+}
+
+
+.dashboard-main {
+    padding: 1rem;
+    background: white;  
+}
+
+
+.color-btn {
+    color: #000;
+    border: solid #000;
+}
+
+.css-ewdv3l {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.Collapse {
+    margin: 1rem 0 0 1rem;
+    border: solid black;
+    background: #fafafa;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.img-dashboard {
+    border-radius: 2rem;
+    margin-top: 1rem;
+}
+
+.btn-new {
+    background: #0dcaf0 !important;
+}
+
+.main-new {
+    padding: 2rem;
+}

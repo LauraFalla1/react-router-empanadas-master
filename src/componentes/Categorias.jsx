@@ -1,7 +1,4 @@
 import { NavLink } from "react-router-dom";
-import iconempanada from "../img/icons8-empanada-64.png";
-import iconpastel from "../img/icons8-patata-48.png";
-import icongenlado from "../img/icons8-bolsa-de-cemento-48.png";
 import axios from "../utils/axios";
 import { useEffect, useState } from "react";
 

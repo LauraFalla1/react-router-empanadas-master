@@ -5,6 +5,8 @@ export const NavItem = (props) => {
     const {nombre} = categoria;
     
     return (
-        <button className="nav-item" onClick={funcion} >{nombre}</button>
+        
+        <li className="nav-item"><button className="nav-link active" onClick={funcion} >{nombre}</button></li>
+        
     );
 }

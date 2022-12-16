@@ -1,10 +1,5 @@
 import { NavLink } from "react-router-dom";
-import pastel1 from "../img/pastel1.jpg";
-import pastel2 from "../img/pastel2.png";
 import carrusel2 from "../img/empanada3.jpg";
-import empanada1 from "../img/empanada1.jpg";
-import empanada2 from "../img/empanada2.jpg";
-import empanada3 from "../img/empanada3.jpg";
 import { useEffect, useState } from "react";
 import axios from "../utils/axios";
 function Menu() {
@@ -32,24 +27,24 @@ function Menu() {
               <div className="row">
                 <div className="col-lg-7 col-md-12">
                   {producto.map((pro, idx) => {
-                    if(idx < 5) {
+                    if (idx < 5) {
                       return <div className="menu-item">
-                      <div className="menu-img">
-                        <img src={pro.urlImage} alt={Image} />
+                        <div className="menu-img">
+                          <img src={pro.urlImage} alt={Image} />
+                        </div>
+                        <div className="menu-text">
+                          <h3>
+                            <span>{pro.nombre}</span>{" "}
+                            <strong>$ {pro.precio}</strong>
+                          </h3>
+                          <p>
+                            {pro.descripcion}
+                          </p>
+                        </div>
                       </div>
-                      <div className="menu-text">
-                        <h3>
-                          <span>{pro.nombre}</span>{" "}
-                          <strong>$ {pro.precio}</strong>
-                        </h3>
-                        <p>
-                          {pro.descripcion}
-                        </p>
-                      </div>
-                    </div>
                     }
-                  } 
-                )}
+                  }
+                  )}
                 </div>
                 <div className="col-lg-5 d-none d-lg-block">
                   <img src={carrusel2} alt={Image} />
